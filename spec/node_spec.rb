@@ -1,4 +1,5 @@
 require 'rspec'
+require 'pry'
 require './lib/node'
 
 RSpec.describe Node do
