@@ -19,5 +19,13 @@ RSpec.describe LinkedList do
   expect(@list.head).to eq(nil)
   end 
  end
+
+   describe "has a method append" do 
+    it "has a method append that adds to head" do 
+      @list.append("doop")
+     expect(@list.head.data).to eq("doop")
+     expect(@list.head.next_node).to eq(nil)
+   end 
+  end 
 end 
 
