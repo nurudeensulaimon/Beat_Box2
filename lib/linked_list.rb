@@ -33,7 +33,6 @@ attr_reader :head
   current = @head
   elements = []
   until current == nil
-    #binding.pry
       elements << current.data
       current = current.next_node
   end
@@ -58,11 +57,28 @@ def insert(index, data)
     @head = new_node
   else 
      current = @head 
-     (num -1).times{current = current.next_node}
+     (index -1).times{current = current.next_node}
      new_node.next_node = current.next_node
      current.next_node = new_node
    end 
  end
+
+ def find(starting_index,index_length)
+   self.to_string.split[starting_index,index_length].join(" ")
+ end 
+
+ def includes?(data)
+   self.to_string.include?(data)
+ end 
 end 
+#    def pop
+#     #find the last node 
+#     # if next_node is nil 
+#     # it is the last_node 
+#     #find the next_node to the last node 
+#     #@next_node to nil
+#     #search for key_word until
+    
+#    end 
+# end 
  
-  
