@@ -68,9 +68,37 @@ RSpec.describe LinkedList do
 
     end 
    end 
-end
-#    describe "has a #find method" do 
-#   it "takes two argumen"
-# end 
 
+   describe "has a #find method" do
+    it "can locate where a data is and specify how many to return" do
+    
+    @list.append("deep")
+    @list.append("woo")
+    @list.append("shi")
+    @list.append("shu")
+    @list.append("blop")
+
+    expect(@list.to_string).to eq("deep woo shi shu blop")
+    expect(@list.find(2, 1)).to eq("shi")
+    expect(@list.find(1,3)).to eq("woo shi shu")
+    expect(@list.includes?("deep")).to eq(true)
+    expect(@list.includes?("dep")).to eq(false)
+    end 
+
+    describe "a #pop method" do 
+     it "removes the last element of a data" do 
+
+      @list.append("deep")
+      @list.append("woo")
+      @list.append("shi")
+      @list.append("shu")
+      @list.append("blop")
+
+      expect(@list.pop).to eq("blop")
+      expect(@list.pop).to eq("shu")
+      expect(@list.to_string).to eq("deep woo shi")
+     end 
+  end
+end 
+end
 
