@@ -51,9 +51,9 @@ attr_reader :head
     end
   end 
 
-def insert(num, data)
+def insert(index, data)
   new_node = Node.new(data)
-  if num == 0
+  if index == 0
     new_node.next_node = @head
     @head = new_node
   else 
