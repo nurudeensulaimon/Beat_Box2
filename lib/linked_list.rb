@@ -5,7 +5,7 @@ attr_reader :head
   end 
 
 
-    def append(data)
+  def append(data)
       new_node = Node.new(data)
     if @head == nil
       @head = new_node 
@@ -29,7 +29,7 @@ attr_reader :head
   end 
  end 
 
- def to_string
+  def to_string
   current = @head
   elements = []
   until current == nil
@@ -50,4 +50,19 @@ attr_reader :head
       @head = @current_node
     end
   end 
+
+def insert(num, data)
+  new_node = Node.new(data)
+  if num == 0
+    new_node.next_node = @head
+    @head = new_node
+  else 
+     current = @head 
+     (num -1).times{current = current.next_node}
+     new_node.next_node = current.next_node
+     current.next_node = new_node
+   end 
+ end
 end 
+ 
+  
