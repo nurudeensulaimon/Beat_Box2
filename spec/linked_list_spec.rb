@@ -99,6 +99,6 @@ RSpec.describe LinkedList do
       expect(@list.to_string).to eq("deep woo shi")
      end 
   end
+ end 
 end 
-end
 

@@ -70,15 +70,33 @@ def insert(index, data)
  def includes?(data)
    self.to_string.include?(data)
  end 
-end 
+
 #    def pop
 #     #find the last node 
 #     # if next_node is nil 
 #     # it is the last_node 
 #     #find the next_node to the last node 
 #     #@next_node to nil
-#     #search for key_word until
-    
+#     #search for key_word until   
 #    end 
-# end 
- 
+# end
+
+def pop 
+  if @head.nil?
+    nil 
+  end 
+   
+  if @head.next_node.nil? 
+    pop_last = @head.data 
+    @head =  nil 
+  return pop_last
+  end 
+  current = @head
+  while current.next_node && current.next_node.next_node 
+    current = current.next_node 
+  end 
+    pop_last = current.next_node.data 
+    current.next_node = nil
+    pop_last
+  end 
+end 
