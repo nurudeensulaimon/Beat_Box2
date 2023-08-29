@@ -87,16 +87,16 @@ def pop
   end 
    
   if @head.next_node.nil? 
-    pop_last = @head.data 
+    last_node = @head.data 
     @head =  nil 
-  return pop_last
+  return last_node
   end 
   current = @head
   while current.next_node && current.next_node.next_node 
     current = current.next_node 
   end 
-    pop_last = current.next_node.data 
+    last_node = current.next_node.data 
     current.next_node = nil
-    pop_last
+    last_node
   end 
 end 
