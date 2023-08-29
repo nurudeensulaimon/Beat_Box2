@@ -1,5 +1,7 @@
+require "./lib/node"
+
 class LinkedList 
-attr_reader :head
+attr_accessor :head
   def initialize 
     @head = nil
   end 
@@ -60,8 +62,8 @@ def insert(index, data)
      (index -1).times{current = current.next_node}
      new_node.next_node = current.next_node
      current.next_node = new_node
-   end 
- end
+  end 
+end
 
  def find(starting_index,index_length)
    self.to_string.split[starting_index,index_length].join(" ")
