@@ -1,44 +1,43 @@
 require "./lib/node"
 
 class LinkedList 
-attr_accessor :head
+  attr_accessor :head
+
   def initialize 
     @head = nil
   end 
 
-
   def append(data)
-      new_node = Node.new(data)
+    new_node = Node.new(data)
     if @head == nil
       @head = new_node 
     else   
       last_node = @head
-    while last_node.next_node != nil 
-      last_node = last_node.next_node 
-    end 
-       last_node.next_node = new_node 
+      while last_node.next_node != nil 
+        last_node = last_node.next_node 
+      end 
+      last_node.next_node = new_node 
     end
-
+  end
 
   def count 
     counter = 0
     last_node = @head 
-  while last_node != nil 
-    counter += 1 
-    last_node = last_node.next_node
-  end 
+    while last_node != nil 
+      counter += 1 
+      last_node = last_node.next_node
+    end 
     counter 
   end 
- end 
 
   def to_string
-  current = @head
-  elements = []
-  until current == nil
+    current = @head
+    elements = []
+    until current == nil
       elements << current.data
       current = current.next_node
-  end
-  elements.join(' ')
+    end
+    elements.join(' ')
   end
 
   def prepend(data)
@@ -52,26 +51,46 @@ attr_accessor :head
     end
   end 
 
-def insert(index, data)
-  new_node = Node.new(data)
-  if index == 0
-    new_node.next_node = @head
-    @head = new_node
-  else 
-     current = @head 
-     (index -1).times{current = current.next_node}
-     new_node.next_node = current.next_node
-     current.next_node = new_node
+  def insert(index, data)
+    new_node = Node.new(data)
+    if index == 0
+      new_node.next_node = @head
+      @head = new_node
+    else 
+      current = @head 
+      (index -1).times{current = current.next_node}
+      new_node.next_node = current.next_node
+      current.next_node = new_node
+    end 
+  end
+
+  def find(starting_index,index_length)
+    self.to_string.split[starting_index,index_length].join(" ")
+  end 
+
+  def includes?(data)
+    self.to_string.include?(data)
+  end 
+
+  def pop 
+    if @head.nil?
+      nil 
+    end 
+    
+    if @head.next_node.nil? 
+      last_node = @head.data 
+      @head =  nil 
+      return last_node
+    end 
+    current = @head
+    while current.next_node && current.next_node.next_node 
+      current = current.next_node 
+    end 
+    last_node = current.next_node.data 
+    current.next_node = nil
+    last_node
   end 
 end
-
- def find(starting_index,index_length)
-   self.to_string.split[starting_index,index_length].join(" ")
- end 
-
- def includes?(data)
-   self.to_string.include?(data)
- end 
 
 #    def pop
 #     #find the last node 
@@ -82,23 +101,3 @@ end
 #     #search for key_word until   
 #    end 
 # end
-
-def pop 
-  if @head.nil?
-    nil 
-  end 
-   
-  if @head.next_node.nil? 
-    last_node = @head.data 
-    @head =  nil 
-  return last_node
-  end 
-  current = @head
-  while current.next_node && current.next_node.next_node 
-    current = current.next_node 
-  end 
-    last_node = current.next_node.data 
-    current.next_node = nil
-    last_node
-  end 
-end 

@@ -28,13 +28,11 @@ end
      expect(@list.head.next_node).to eq(nil)
      expect(@list.count).to eq(1)
      expect(@list.to_string).to eq("doop")
-
     end 
   end 
 
    describe "it add another data into node" do 
      it "has a method that append additiona method" do 
-
      expect(@list.head).to eq(nil)
 
      @list.append("doop")
@@ -42,19 +40,16 @@ end
      expect(@list.head.data).to eq("doop")
      expect(@list.head.next_node).to eq(nil)
 
-
       @list.append("deep")
 
       expect(@list.head.next_node.data).to eq("deep")
       expect(@list.count).to eq(2)
       expect(@list.to_string).to eq("doop deep")
-
      end 
    end 
 
   describe "has a method prepend" do 
     it "can add @head to the list" do 
-
      @list.append("plop")
      @list.append("suu")
 
@@ -64,7 +59,6 @@ end
 
      expect(@list.to_string).to eq("dop plop suu")
      expect(@list.count).to eq(3)
-
     end
   end
 
@@ -82,7 +76,6 @@ end
       expect(@list.count).to eq(3)
       expect(@list.insert(1,"woo"))
       expect(@list.to_string).to eq("dop woo plop suu")
-
     end 
    end 
 
